@@ -14,7 +14,7 @@
 //============================================================
 
 //Alberta City
-alberta,15,234,0	warp	alb001	2,5,pay_fild03,388,63
+// alberta,15,234,0	warp	alb001	2,5,pay_fild03,388,63
 alberta,117,38,0	warp	alb01	2,2,alberta_in,180,30
 alberta,170,170,0	warp	alb03	1,1,alb_ship,26,168
 alberta,178,165,0	warp	alb04	1,2,alb_ship,39,163

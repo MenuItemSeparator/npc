@@ -78,7 +78,23 @@ gef_tower,111,37,4	script	Wizard Guildsman	70,{
 		mes "Huh? What are you doing way up here...?";
 		mes "So what brings you here?";
 		next;
-		if (select("I want to become a Wizard.:...nothing.") == 1) {
+        if(select("Make me a mage fast way.:Let's tallk") == 1)
+        {
+            if(JobLevel == 50)
+            {
+                completequest 9018;
+    		    callfunc "Job_Change",Job_Wizard;
+	    	    callfunc "F_ClearJobVar";
+                getitem 505,6;
+                close;
+            }
+            else
+            {
+                mes "Hah";
+            }
+        }
+        
+		else if (select("I want to become a Wizard.:...nothing.") == 1) {
 			mes "[Wizard Guildsman]";
 			mes "I see... Well, of course you want to become a Wizard, otherwise you wouldn't have walked up all those stairs right?";
 			mes "Anyways, I would like to welcome you. I will assist you in becoming a Wizard.";
