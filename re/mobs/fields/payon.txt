@@ -35,12 +35,13 @@ pay_fild02,105,256,10,10	monster	Red Mushroom	1085,4,360000,180000
 //==================================================
 // pay_fild03 - Payon Forest
 //==================================================
-pay_fild03,0,0	monster	Fabre	1007,130,5000
-pay_fild03,0,0	monster	Poring	1002,25,5000
-pay_fild03,0,0	monster	Willow	1010,25,5000
-pay_fild03,0,0	monster	Pupa	1008,20,5000
-pay_fild03,153,216,10,10	monster	Red Mushroom	1085,6,900000,450000
-pay_fild03,372,64,15,15	monster	Green Plant	1080,4,180000,90000
+pay_fild03,0,0	monster	Заяц	1063,25,5000
+pay_fild03,0,0	monster	Слизняк	1007,130,5000
+// pay_fild03,0,0	monster	LUNATIC	1002,25,5000
+// pay_fild03,0,0	monster	Willow	1010,25,5000
+// pay_fild03,0,0	monster	Pupa	1008,20,5000
+// pay_fild03,153,216,10,10	monster	Red Mushroom	1085,6,900000,450000
+// pay_fild03,372,64,15,15	monster	Green Plant	1080,4,180000,90000
 
 //==================================================
 // pay_fild04 - Sograt Desert

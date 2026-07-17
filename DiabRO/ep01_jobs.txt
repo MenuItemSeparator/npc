@@ -3,59 +3,59 @@
 //= Episode 01
 //============================================================
 
-izlude_in,72,172,4	script	Mage Guildsman	123,{
+izlude_in,72,172,4	script	Училка	123,{
 	if (Upper == 1) {
 		if (ADVJOB == Job_High_Wizard || ADVJOB == Job_Professor) {
 			if (Class == Job_Novice_High) {
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Whoa, long time no see! But weren't you supposed to be dead?";
 				next;
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Ah, you must have been reborn. Well, I'm glad to have you back.";
 				next;
 				if (!callfunc("F_CanChangeJob")) {
-					mes "[� Mage Guildsman]";
+					mes "[Училка]";
 					mes "I'm sorry, but I don't think you're ready to learn magic yet. Why don't you go finish learning the Basic Skills first?";
 					next;
-					mes "[� Mage Guildsman]";
+					mes "[Училка]";
 					mes "Take your time. The more you learn, the more ready you'll be to learn magic again.";
 					close;
 				}
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Well, since you have passed the Mage test once, I will not question your qualification. You want to have your magic skills back immediately, don't you?";
 				next;
 				skill "NV_TRICKDEAD",0,SKILL_PERM;
 				jobchange Job_Mage_High;
 				skill "MG_ENERGYCOAT",1,SKILL_PERM;
-				mes "[� Mage Guildsman]";
+				mes "[Ы Mage Guildsman]";
 				mes "Wow, for some reason, you look way better than you did before. Anyway, I believe you will do a better job being a Mage as well.";
 				close;
 			}
 			else {
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Is there anything more I can help you with? If not, why don't you go test your skills? The world is waiting for you~!";
 				close;
 			}
 		}
 		else {
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "What, are you interested in the Mage guild? I didn't want to tell you this, but you don't belong here.";
 			next;
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "I am not sure why you're still standing in front of me, but I can tell that you're not meant to be a Mage.";
 			close;
 		}
 	}
-	mes "[� Mage Guildsman]";
+	mes "[Училка]";
 	mes "Yo. What's up?";
 	next;
 	switch(select("I want to be a Mage.:Tell me the Requirements.:Pretty much nothing.")) {
 	case 1:
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		if (BaseJob == Job_Mage) {
 			mes "Hey, haven't you realized? You're aleady a Mage, silly!";
 			next;
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "One of these days you'll realize the power inside of you when you can make Fire with your mind!";
 			close;
 		}
@@ -72,14 +72,14 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 				mes "I like girls like you~";
 			}
 			next;
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "Right, you said that you wanna be a Mage? Alright then, please sign the Mage Application.";
 			next;
 			if (select("Sign Up.:Quit.") == 1) {
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Okay. Sign right there. Oh, you're very good at spelling. Alright. So your name is... " + strcharinfo(0) + ".";
 				next;
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Now it's time for";
 				mes "me to give you the test.";
 				switch(rand(0,3)) {
@@ -105,14 +105,14 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 				}
 				next;
 				getitem 1092,1; //Empty_Cylinder
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "You can find the neccessary ingredients inside the Guide Book in this Guild. So you better look up what you need before you go.";
 				next;
-				mes "[� Mage Guildsman]";
+				mes "[Училка]";
 				mes "Once you collect all the ingredients you, use the machine in the center of the room to mix the solution. Good luck!";
 				close;
 			}
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "Whaaaaat~?! Right after you tell me that you wanna become a Mage, you change your mind?! Be a bit more decisive!";
 			close;
 		}
@@ -120,7 +120,7 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 		if (!callfunc("F_CanChangeJob")) {
 			mes "Oh, what a bummer. You haven't met the requirements yet.";
 			next;
-			mes "[� Mage Guildsman]";
+			mes "[Ы Mage Guildsman]";
 			mes "Go back and reach Novice Job level 9 first. Don't forget that you also have to learn all of the Basic Skills before you come back.";
 			close;
 		}
@@ -134,12 +134,12 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 		else
 			mes "Making Mixed Solution No. 4.";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Okay, let me";
 		mes "check if you made your";
 		mes "solution accurately...";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		if (countitem(1071) == 0 && countitem(1085) == 0 && countitem(1086) == 0 && countitem(1087) == 0 && countitem(1090) == 0) {
 			mes "Hey, where's the Solution";
 			mes "I asked for...? I can't check it if you don't show it to me, right?";
@@ -151,7 +151,7 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 				mes "This isn't the";
 				mes "Solution I asked for!";
 				next;
-				mes "[Mage Guildsman]";
+				mes "[Училка]";
 				if (job_magician_q == 1)
 					mes "You're supposed to make Mixed Solution No. 1 and bring it back to me. Now go and try it again.";
 				else if (job_magician_q == 2)
@@ -177,10 +177,10 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 		mes "Hmm. I can see that you tried really hard. For a beginner's attempt, this is really good.";
 		mes "Great work!";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Alright! I'm pleased to say that you've passed the Mage Test. I will transform you right away!";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "*Ahem*";
 		mes "Congratulations!";
 		mes "You are now a Mage!";
@@ -192,26 +192,26 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 		callfunc "Job_Change",Job_Mage;
 		callfunc "F_ClearJobVar";
 		set Zeny,Zeny+50;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "'Welcome to My World~'";
 		mes "Heh heh, I just wanted to say that. You know, it's a quote from a well-known movie~";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Now that you're a Mage just like us, let's be friends, okay?";
 		close;
 	case 2:
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Wanna be a Mage, eh?";
 		if (Sex == SEX_MALE)
 			mes "For a cutie like you, I'd be happy to explain the requirements!";
 		else
 			mes "I'd be happy to explain the requirements for a pretty girl like you!";
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "First of all, you have to reach Novice Job Level 10 and learn all of the Basic Skills. Then, you'll have to pass the Mage Test.";
 		next;
 		if (job_magician_q != 0) {
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "Your test is to";
 			switch(job_magician_q) {
 			case 1:
@@ -244,20 +244,141 @@ izlude_in,72,172,4	script	Mage Guildsman	123,{
 				break;
 			}
 			next;
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "You can look up the ingredients you'll need to make the Solution inside the Guide Book in this Guild.";
 		}
 		else {
-			mes "[� Mage Guildsman]";
+			mes "[Училка]";
 			mes "You will be informed as to which Mixed Solution you will need to create after signing the application form.";
 		}
 		next;
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Let me know when you are ready to become a Mage, alright?";
 		close;
 	case 3:
-		mes "[� Mage Guildsman]";
+		mes "[Училка]";
 		mes "Nothing...?";
+		close;
+	}
+}
+
+izlude,207,156,4	script	Гвардеец#swd	119,{
+	if (Upper == 1) {
+		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
+			mes "[Swordman]";
+			mes "It...";
+			mes "Can't be...";
+			mes "You've been reborn, haven't you?";
+			next;
+			mes "[Swordman]";
+			mes "I see you're retreading the path of the Swordman! Once you've gotten used to brandishing a sword, you can never go back!!";
+			next;
+			if (!callfunc("F_CanChangeJob")) {
+				mes "[Swordman]";
+				mes "Hmm? Ah, you must first master the Basic Skills before you are ready to become a Swordman.";
+				next;
+				mes "[Swordman]";
+				mes "Come back to me when you have finished learning the Basic Novice Skills.";
+				close;
+			}
+			mes "[Swordman]";
+			mes "Excellent! Let me promote you to a Swordman right away!";
+			next;
+			skill "NV_TRICKDEAD",0,SKILL_PERM;
+			jobchange Job_Swordman_High;
+			skill "SM_MOVINGRECOVERY",1,SKILL_PERM;
+			skill "SM_FATALBLOW",1,SKILL_PERM;
+			skill "SM_AUTOBERSERK",1,SKILL_PERM;
+			mes "[Swordman]";
+			mes "Hmm... You look like a well-experienced Swordman. Still, I'm sure that you must train to improve your skills and gain strength!";
+			close;
+		}else{
+			mes "[Swordman]";
+			mes "Hm...?";
+			mes "You're a reborn";
+			mes "warrior, aren't you?";
+			next;
+			mes "[Swordman]";
+			mes "Hmmm...";
+			mes "It seems that being";
+			mes "a Swordman is not part";
+			mes "of your destiny. I'm sorry,";
+			mes "but it seems there is nothing";
+			mes "I can do for you.";
+			close;
+		}
+	}
+	mes "[Здоровенный мужик]";
+	mes "А ты не выглядишь шибко умным, не так ли?";
+    next;
+    mes "[Здоровенный мужик]";
+	mes "Ты нам подходишь!";
+	mes "Ты похож на настоящего мужыка!";
+	next;
+	switch(select("Что ты имеешь в виду?:Я хочу быть сильным и тупым!:Эээээ????7")) {
+	case 1:
+		mes "[Здоровенный мужик]";
+		mes "Мы Гвардейцы, настоящие мужики!";
+		next;
+		mes "[Здоровенный мужик]";
+		mes "Мы носим железо на голое тело";
+		mes "Кто еще так может?";
+		next;
+		mes "[Здоровенный мужик]";
+		mes "Мы жрем мясо! Много мяса. Тестостерон зашкаливает!";
+		mes "Мы бъем больно! Когда нас бъют, нам не больно!.";
+		next;
+		mes "[Здоровенный мужик]";
+		mes "Короче, мы идеальное пушечное мясо!";
+		mes "Да что там, пушки нас боятся. И мясо нас боится!";
+		close;
+	case 2:
+		mes "[Здоровенный мужик]";
+		if(BaseJob != Job_Novice) {
+			if(BaseJob == Job_Swordman) {
+				mes "Нука подожди... Чего то я не понял... Нука, нука...";
+				mes "Дак ты уже Гвардеец! Смотри, вот у тебя доспех нарисован.";
+				mes "Дааа! Так держать! Чем тупее тем больше от тебя пользы!";
+				mes "Идеальный Гвардеец!";
+			}else{
+				mes "Нука подожди... Чего то я не понял... Нука, нука...";
+				mes "Ты что пытаешься обмануть Гвардейца? Я тупой, но не дурак!";
+				mes "У тебя уже есть другая работа!";
+				mes "Иди работай! Не мешай мне искать идеальное пушечное мясо!";
+			}
+			close;
+		}else{
+			if (!callfunc("F_CanChangeJob")) {
+				mes "Вот, подержи копье!";
+				mes "Ыа! Силенок тебе не хватает, нужно уровень подкачать, или уменя потратить. ^4A4AFFJob Level 10^000000.";
+				mes "Гвардейцу минимум нужен 10 уровень.";
+				mes "Не тот который уровень персонажа, а другой. Ну ты понял? ^4A4AFFBasic Skill Level 9^000000.";
+				mes "Разберешься, чай не дурак!";
+				next;
+				mes "[Здоровенный мужик]";
+				mes "Хах, не так все просто да?";
+				mes "Это <Гвардейство> детка! Мы тупые, но не дураки!";
+				close;
+			}
+			mes "Да! Ты определенно нам подходишь!";
+			mes "Ну-ка, сделай страшное лицо.";
+			next;
+			if(select("ЫЫЫЫЫЫа.:Надо подумать") == 2) {
+				mes "[Здоровенный мужик]";
+				mes "Думать? ДУМАТЬ???? Ты это брось!";
+				mes "Гвардейцы думают только после победы!";
+				close;
+			}
+			mes "[Здоровенный мужик]";
+			mes "Ух еп...";
+			next;
+			mes "[Здоровенный мужик]";
+			mes "Ну ты спих, нам такие нужны!";
+			callfunc "Job_Change",Job_Swordman;
+			getitem 13415,1; // N_Falchion
+			close;
+		}
+	case 3:
 		close;
 	}
 }

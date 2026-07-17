@@ -1,0 +1,68 @@
+//===== rAthena Script =========================================================
+//= Criatura Academy
+//===== By: ====================================================================
+//= Kisuka (1.0)
+//===== Current Version: =======================================================
+//= 2.0.0
+//===== File Encoding ==========================================================
+//= CP-949 (EUC-KR compatible). Do NOT read/save it as UTF-8.
+//===== Description: ===========================================================
+//= Teaches the player about the basics.
+//= Also contains Novice skill quests for First Aid and Trick Dead.
+//===== Additional Comments: ===================================================
+// Капитан Ован из файла academy.txt Captain Carrok
+// Моряк - Sailor из файла academy.txt
+//==============================================================================
+
+int_land,51,61,5	script	Моряк #intro_npc04	4W_SAILOR,{
+	if (isbegin_quest(21008) == 1) {
+		if (countitem(6008) < 2) {
+			mes "[Моряк]";
+			mes "Видел этого оленя?";
+			mes "Он еще когда об остров корабль ударил, кричал ВПЕРЕД!!!1.";
+			next;
+			mes "[Моряк]";
+			mes "А теперь он хочет быть нашим капитаном.";
+            mes "В такой то шляпе.";
+			close;
+		}
+		mes "[Sailor]";
+		mes "Unbelievable, perfect! Any chance you want to join my crew?";
+		mes "Enough talking!!";
+		mes "Come on, we're ready to set sail!";
+		mes "Thank you so much!";
+		next;
+		mes "[Sailor]";
+		mes "If you want to sail with us to Izlude, jump on board!";
+		delitem 6008,2;
+		getexp 100,100;
+		getitem 611,5;
+		completequest 21008;
+		next;
+		mes "[Sailor]";
+		mes "Oh, and take these ^4d4dffMagnifiers^000000.";
+		mes "When you hunt monsters you can find ^4d4dffunidentified items^000000.";
+		next;
+		mes "[Sailor]";
+		mes "Using a Magnifier will identify the item.";
+		next;
+		mes "[Sailor]";
+		mes "Maybe you already have some unidentified items from your fights with those Porings?";
+		close;
+	}
+	mes "[Моряк]";
+	mes "Держим курс на Инсмут!";
+	mes "Остановились не на долго, помочь с бедствием.";
+	mes "А там этот олень...";
+	close;
+
+OnInit:
+	questinfo( QTYPE_QUEST, QMARK_YELLOW, "Class == Job_Novice && !isbegin_quest(21002) && isbegin_quest(21008) == 1" );
+	end;
+}
+
+int_land01,51,61,5	duplicate(Моряк#intro_npc04)	Моряк#intro_npc04_01	4W_SAILOR
+int_land02,51,61,5	duplicate(Моряк#intro_npc04)	Моряк#intro_npc04_02	4W_SAILOR
+int_land03,51,61,5	duplicate(Моряк#intro_npc04)	Моряк#intro_npc04_03	4W_SAILOR
+int_land04,51,61,5	duplicate(Моряк#intro_npc04)	Моряк#intro_npc04_04	4W_SAILOR
+

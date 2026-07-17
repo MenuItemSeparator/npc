@@ -84,21 +84,26 @@ int_land,49,57,0	script	#intro_to_izlude	WARPNPC,2,2,{
 	end;
 OnTouch:
 	if (isbegin_quest(21008) == 1) {
-		mes "^4d4dffOnce you leave this island there is no way back.";
-		mes "Are you sure you want to go directly to Izlude?^000000";
+        mes "[Моряк]";
+		mes "Мы готовы к отправлению.";
+		mes "Ты точно идешь с нами в ^4d4dffИнсмут^000000?";
+		mes "Это жуткое место, полное опасностей, чудовищ и экспы.";
+		mes "О да! Узнаю этот взгляд. Наш человек!";
 		next;
-		mes "^4d4dffIf you do, the quest will be deleted from your Quest Log.^000000";
+		mes "^4d4dffЕсли что, для квестов есть отдельное окно.^000000";
 		next;
-		if (select("Do not go to Izlude yet", "Sail to Izlude!") == 1) {
-			mes "[Sailor]";
-			mes "You want to stay here longer?";
-			mes "Good, then I'll wait until you're ready~";
+		if (select("А что там за олень, припарковал ко дну свой корабль?", "Моя убиваааать монстрав!") == 1) {
+			mes "[Моряк]";
+			mes "Блин, это угар. Ты еще с ним не разговаривал?";
+			mes "Ну сходи пообщайся, только предупреждаю...";
+			mes "Он не в себе.";
 			close;
 		}
 		completequest 21008;
 	}
 	mes "[Sailor]";
-	mes "Let's head towards Izlude!";
+	mes "Отправляемся!";
+	mes "Держим курс на Инсмут!!";
 	close2;
 	if (isbegin_quest(21001) == 1)
 		completequest 21001;
