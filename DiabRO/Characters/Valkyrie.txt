@@ -1,0 +1,224 @@
+// Ep 01
+// Валькирия, повелительница миров, Гром-Баба, мечта подростка.
+// Харрактер - принцесса из Adventure Time + Макима (Человек бензопила)
+// Стратег, маниакально депрессивная психопатка. Ощущает давление космоса,
+// все события интерпретирует из своей ситуации, из-а чего 
+// никогда не добивается желаемого. При этом не жалеет 
+// ресурсов даже на самую незначительную задачу.
+
+valkyrie,47,85,4	script	Valkyrie#	811,{
+	if(BaseJob == Job_Novice) {
+		mes "[Гром-Баба]";
+		mes "Приветствую тебя в зале славы, Новичок!";
+		mes "Ты пришел в мой мир маленьким существом...";
+		mes "Скоро станешь Великим Героем!";
+		next;
+		mes "[Гром-Баба]";
+		mes "Здесь, со мной в этом зале духи великих воинов.";
+		mes "Мастеров и просто достойных персонажей.";
+		mes "Поговори с ними.";
+		mes "Они любят болтать о преимуществах своих профессий";
+		next;
+		mes "[Гром-Баба]";
+		mes "Мой мир отличается от большинства других.";
+		mes "Рагнарёк уже давно закончился. Стух...";
+		mes "Но остались мы с тобой. И святая экспа!";
+		if(select("Я еще не выбрал профессию.:Я пришел за экспой!") == 2) {
+			mes "[Гром-Баба]";
+			mes "Как и мы все.";
+			next;
+			mes "Как и мы все.";
+			close2;
+			warp "yuno_in02",93,205;
+			end;
+		}
+		else{
+			mes "[Гром-Баба]";
+			mes "Это ответственный шаг!";
+			mes "В других мирах, ты можешь";
+			mes "Потратить на персонажа тысячу часов";
+			mes "Но криворукие админы, испортят его за минуту!";
+			next;
+			mes "[Гром-Баба]";
+			mes "Поэтому в моем мире, у всех профессий есть назначение.";
+			mes "И профессии меняются только для того.";
+			mes "чтобы быть ближе к своему назначению.";
+			next;
+			mes "[Гром-Баба]";
+			mes "Не выбирай имбовую профессию.";
+			mes "Я одна не могу все сбалансировать правильно.";
+			mes "Выбери стиль геймплея. Мотивацию.";
+			mes "Выбери свой путь, стать Великим Героем.";
+			end;
+		}
+	}
+	if (ADVJOB != 0 || Upper == 1) {
+		mes "[Valkyrie]";
+		mes "Welcome";
+		mes "to Valhalla,";
+		mes "the Hall of Honor.";
+		next;
+		mes "[Valkyrie]";
+		mes "Please make";
+		mes "yourself comfortable";
+		mes "while you are here.";
+		mes "Honor to the warriors!";
+		close;
+	}
+	else if (BaseLevel > 98 && JobLevel > 49 && Class >= Job_Knight && Class <= Job_Crusader2) {
+		mes "[Valkyrie]";
+		mes "Welcome";
+		mes "to Valhalla,";
+		mes "the Hall of Honor.";
+		next;
+		mes "[Valkyrie]";
+		mes "You will now end";
+		mes "your present life and";
+		mes "begin an entirely new life.";
+		mes "Honor to the warriors!";
+		next;
+		if (Weight > 0 || Zeny > 0 || checkcart() != 0 || checkfalcon() != 0 || checkriding() != 0) {
+			mes "[Valkyrie]";
+			mes "There are a few things you must";
+			mes "do before we start. You must";
+			mes "first empty your mind and body.";
+			mes "Honor comes when you abandon";
+			mes "all your selfish desires...";
+			next;
+			mes "[Valkyrie]";
+			mes "You cannot take anything with you to the next life. Your items, zeny, pets and Pushcart all have to be left behind.";
+			next;
+			mes "[Valkyrie]";
+			mes "When you are ready";
+			mes "please return to me,";
+			mes "brave adventurer.";
+			close2;
+			warp "yuno_in02",93,205;
+			end;
+		}
+		else {
+			mes "[Valkyrie]";
+			mes "I see you've already";
+			mes "released yourself from";
+			mes "all worldy attachments,";
+			mes ""+ strcharinfo(0) +".";
+			next;
+			mes "[Valkyrie]";
+			mes "That's an admirable attitude for an adventurer such as yourself. Honor comes when you abandon all personal desires for the sake of mankind.";
+			next;
+			if (SkillPoint) {
+				mes "[Valkyrie]";
+				mes "Hmm... I sense that you have";
+				mes "some lingering attachment or";
+				mes "unfinished business in your";
+				mes "current life. Take care of that,";
+				mes "and bring closure to your present life.";
+				close2;
+				warp "yuno_in02",93,205;
+				end;
+			}
+			mes "[Valkyrie]";
+			mes "Now, let me remove all";
+			mes "of your present memories...";
+			mes "However, you will be able to";
+			mes "remember the most honorable";
+			mes "moments of this life.";
+			next;
+			mes "[Valkyrie]";
+			mes "With one,";
+			mes "I will ask the";
+			mes "goddess Urd to remove";
+			mes "all of your present";
+			mes "memories.";
+			next;
+			mes "[Valkyrie]";
+			mes "With two,";
+			mes "I will ask the";
+			mes "goddess Verdandi to keep";
+			mes "and record the most honorable moments of your present life.";
+			next;
+			mes "[Valkyrie]";
+			mes "With three,";
+			mes "I will ask the";
+			mes "goddess Skuld to";
+			mes "guide you to your";
+			mes "next life.";
+			next;
+			mes "[Valkyrie]";
+			mes "One...";
+			callfunc "F_ClearJobVar";
+			next;
+			mes "[Valkyrie]";
+			mes "One...";
+			mes "Two......";
+			next;
+			mes "[Valkyrie]";
+			mes "One...";
+			mes "Two......";
+			mes "And Three.";
+			set ADVJOB, Class+Job_Novice_High; //memo the target 3rd Job ID
+			if(ADVJOB == Job_Lord_Knight2) set ADVJOB,Job_Lord_Knight;
+			if(ADVJOB == Job_Paladin2) set ADVJOB,Job_Paladin;
+			jobchange Job_Novice_High;
+			resetlvl(1);
+			set MISC_QUEST,MISC_QUEST & ~1024;//<-reset Skill Reset Event
+			skill "NV_FIRSTAID",1,SKILL_PERM;
+			skill "NV_TRICKDEAD",1,SKILL_PERM;
+			completequest 1000;
+			next;
+			mes "[Valkyrie]";
+			mes "Congratulations.";
+			mes "You are now reborn";
+			mes "into a brand new life.";
+			mes "Please take these small gifts";
+			mes "in preparation for your new adventures.";
+			getitem 1202,1; //Knife_
+			getitem 2302,1; //Cotton_Shirt_
+			next;
+			mes "[Valkyrie]";
+			mes "I wish that the release the goddess Urd has granted you proves to be a blessing. I hope that the memories Verdandi has recorded will always honor you.";
+			next;
+			mes "[Valkyrie]";
+			mes "And I pray that the new life to which the goddess Skuld will guide you will be even more honorable than your last.";
+			close2;
+			switch (ADVJOB) {
+			case 4008:
+			case 4015:
+				if (checkre(0)) warp "izlude",129,97;
+				else warp "izlude",94,103;
+				break;
+			case 4009:
+			case 4016:
+				warp "prontera",273,354; break;
+			case 4010:
+			case 4017:
+				warp "geffen",120,60; break;
+			case 4011:
+			case 4019:
+				warp "alberta",116,57; break;
+			case 4012:
+			case 4020:
+			case 4021:
+				warp "payon",69,100; break;
+			case 4013:
+			case 4018:
+				warp "morocc",154,50; break;
+			default:
+				warp "yuno_in02",93,205; break;
+			}
+			end;
+		}
+	}
+	else {
+		mes "[Valkyrie]";
+		mes "Welcome";
+		mes "to Valhalla,";
+		mes "the Hall of Honor.";
+		next;
+		mes "[Valkyrie]";
+		mes "Unfortunately, you have not yet been invited here. I ask you to leave immediately. Honor to the warriors!";
+		close2;
+		warp "yuno_in02",93,205;
+		end;
+	}
+}
