@@ -23,7 +23,7 @@ int_land,51,61,5	script	Моряк #intro_npc04	4W_SAILOR,{
 			next;
 			mes "[Моряк]";
 			mes "А теперь он хочет быть нашим капитаном.";
-            mes "В такой то шляпе.";
+            mes "В такой то шляпе...";
 			close;
 		}
 		mes "[Sailor]";

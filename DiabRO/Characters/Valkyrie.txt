@@ -6,6 +6,9 @@
 // никогда не добивается желаемого. При этом не жалеет 
 // ресурсов даже на самую незначительную задачу.
 
+valkyrie,48,73,0	warp	valk01#1	1,1,valkyrie,48,64
+valkyrie,48,66,0	warp	valk01#2	1,1,valkyrie,48,75
+
 valkyrie,47,85,4	script	Valkyrie#	811,{
 	if(BaseJob == Job_Novice) {
 		mes "[Гром-Баба]";
@@ -29,7 +32,7 @@ valkyrie,47,85,4	script	Valkyrie#	811,{
 			next;
 			mes "Как и мы все.";
 			close2;
-			warp "yuno_in02",93,205;
+			warp "iz_int01",18,26;
 			end;
 		}
 		else{

@@ -2,7 +2,10 @@
 //= By: Cat God (1.0)
 //= Episode 01
 //============================================================
-
+// Училка в Школе Магии.
+// Квесты с 1005 до 1008
+// Святая Экспа! Учиться и Качаться! Зумеры.
+// job_magician_q
 izlude_in,72,172,4	script	Училка	123,{
 	if (Upper == 1) {
 		if (ADVJOB == Job_High_Wizard || ADVJOB == Job_Professor) {
@@ -47,81 +50,50 @@ izlude_in,72,172,4	script	Училка	123,{
 		}
 	}
 	mes "[Училка]";
-	mes "Yo. What's up?";
+	mes "Слушаю тебя, о неразумное создание!";
 	next;
-	switch(select("I want to be a Mage.:Tell me the Requirements.:Pretty much nothing.")) {
+	switch(select("Хочу учиться.:Не хочу учиться.:Школа, это не мое.")) {
 	case 1:
 		mes "[Училка]";
 		if (BaseJob == Job_Mage) {
-			mes "Hey, haven't you realized? You're aleady a Mage, silly!";
+			mes "Так, быстро на уроки!";
 			next;
 			mes "[Училка]";
-			mes "One of these days you'll realize the power inside of you when you can make Fire with your mind!";
+			mes "Задача Школяра - Учиться и Качаться!";
+			mes "Надеюсь ты Учишься и Качаешься?!";
 			close;
 		}
 		if (BaseJob != Job_Novice) {
-			mes "Hey~ C'mon. Quit playing games. You can't be a Mage because you already have another Job.";
+			mes "Ты выбрал ПТУ вместо школы!";
+			mes "Иди учись в свою шарагу!";
+			mes "У нас тут приличное заведение!";
 			close;
 		}
-		if (job_magician_q == 0) {
-			mes "Wanna be a Mage, eh...?";
-			if (Sex == SEX_MALE)
-				mes "Hey, look at you! You're kinda cute~! Not my type though...";
-			else {
-				mes "Oooh, you're such a hot babe~!";
-				mes "I like girls like you~";
-			}
-			next;
-			mes "[Училка]";
-			mes "Right, you said that you wanna be a Mage? Alright then, please sign the Mage Application.";
-			next;
-			if (select("Sign Up.:Quit.") == 1) {
-				mes "[Училка]";
-				mes "Okay. Sign right there. Oh, you're very good at spelling. Alright. So your name is... " + strcharinfo(0) + ".";
-				next;
-				mes "[Училка]";
-				mes "Now it's time for";
-				mes "me to give you the test.";
-				switch(rand(0,3)) {
-				case 1:
-					mes "Make me a ^3355FFMixed Solution No. 1^000000";
-					mes "and bring it back to me.";
-					set job_magician_q,1;
-					break;
-				case 2:
-					mes "Make me a ^3355FFMixed Solution No. 2^000000";
-					mes "and bring it back to me.";
-					set job_magician_q,2;
-					break;
-				case 3:
-					mes "Make me a ^3355FFMixed Solution No. 3^000000";
-					mes "and bring it back to me.";
-					set job_magician_q,3;
-					break;
-				default:
-					mes "Make me a ^3355FFMixed Solution No. 4^000000";
-					mes "and bring it back to me.";
-					set job_magician_q,4;
-				}
-				next;
-				getitem 1092,1; //Empty_Cylinder
-				mes "[Училка]";
-				mes "You can find the neccessary ingredients inside the Guide Book in this Guild. So you better look up what you need before you go.";
-				next;
-				mes "[Училка]";
-				mes "Once you collect all the ingredients you, use the machine in the center of the room to mix the solution. Good luck!";
-				close;
-			}
-			mes "[Училка]";
-			mes "Whaaaaat~?! Right after you tell me that you wanna become a Mage, you change your mind?! Be a bit more decisive!";
-			close;
-		}
-		mes "Yeah? Ready...?";
+		mes "Святая Экспа!";
 		if (!callfunc("F_CanChangeJob")) {
-			mes "Oh, what a bummer. You haven't met the requirements yet.";
+			mes "Очередной зумер.";
 			next;
-			mes "[Ы Mage Guildsman]";
-			mes "Go back and reach Novice Job level 9 first. Don't forget that you also have to learn all of the Basic Skills before you come back.";
+			mes "[Училка]";
+			mes "Запомни, в школу ходят только с 10 джоба.";
+			mes "И очки умений нужно распределить!";
+			mes "Мусор из карманов не забудь выбросить.";
+			close;
+		}
+		else
+		{
+			mes "[Училка]";
+			mes "Ты пришел Учиться?";
+			mes "Ты пришел Качаться?";
+			mes "Тогда иди! Иди и Качайся!";
+			mes "Не забывай Учиться!";
+			for ( .@quest_id = 1005; .@quest_id <= 1008; .@quest_id++ ) {
+				if (isbegin_quest(.@quest_id) == 1)
+					completequest .@quest_id;
+			}
+			callfunc "Job_Change",Job_Mage;
+			callfunc "F_ClearJobVar";
+			set Zeny,Zeny+50;
+			getitem 1601,1;
 			close;
 		}
 		mes "" + strcharinfo(0) + "'s test was...";
@@ -201,67 +173,33 @@ izlude_in,72,172,4	script	Училка	123,{
 		close;
 	case 2:
 		mes "[Училка]";
-		mes "Wanna be a Mage, eh?";
+		mes "Не хочешь Учиться и Качаться, но хочешь знать магию?";
 		if (Sex == SEX_MALE)
-			mes "For a cutie like you, I'd be happy to explain the requirements!";
+			mes "Ну, брат, ты даешь!";
 		else
-			mes "I'd be happy to explain the requirements for a pretty girl like you!";
+			mes "И как ты себе это представляешь, малявка?";
 		next;
 		mes "[Училка]";
-		mes "First of all, you have to reach Novice Job Level 10 and learn all of the Basic Skills. Then, you'll have to pass the Mage Test.";
-		next;
-		if (job_magician_q != 0) {
-			mes "[Училка]";
-			mes "Your test is to";
-			switch(job_magician_q) {
-			case 1:
-				mes "make me a";
-				mes "^3355FFMixed Solution No. 1^000000";
-				mes "and bring it back to me.";
-				if (isbegin_quest(1005) == 0)
-					setquest 1005;
-				break;
-			case 2:
-				mes "make me a";
-				mes "^3355FFMixed Solution No. 2^000000";
-				mes "and bring it back to me.";
-				if (isbegin_quest(1006) == 0)
-					setquest 1006;
-				break;
-			case 3:
-				mes "make me a";
-				mes "^3355FFMixed Solution No. 3^000000";
-				mes "and bring it back to me.";
-				if (isbegin_quest(1007) == 0)
-					setquest 1007;
-				break;
-			default:
-				mes "make me a";
-				mes "^3355FFMixed Solution No. 4^000000";
-				mes "and bring it back to me.";
-				if (isbegin_quest(1008) == 0)
-					setquest 1008;
-				break;
-			}
-			next;
-			mes "[Училка]";
-			mes "You can look up the ingredients you'll need to make the Solution inside the Guide Book in this Guild.";
-		}
-		else {
-			mes "[Училка]";
-			mes "You will be informed as to which Mixed Solution you will need to create after signing the application form.";
-		}
+		mes "Чтобы стать магом, тебе нужно Учиться и Качаться.";
+		mes "Вкачай 10 джоб и приходи. Поговорим о твоем будущем.";
+		mes ".....Зумеры.....";
+		close;
 		next;
 		mes "[Училка]";
-		mes "Let me know when you are ready to become a Mage, alright?";
+		mes "Ты что, голову дома забыл?";
+		mes "Учиться и Качаться!";
 		close;
 	case 3:
 		mes "[Училка]";
-		mes "Nothing...?";
+		mes "Учиться и Качаться!";
 		close;
 	}
 }
 
+
+// Гвардеец.
+// Тупой но не дурак.
+// Мооощь! Мужик!
 izlude,207,156,4	script	Гвардеец#swd	119,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
@@ -322,7 +260,6 @@ izlude,207,156,4	script	Гвардеец#swd	119,{
 		next;
 		mes "[Здоровенный мужик]";
 		mes "Мы носим железо на голое тело";
-		mes "Кто еще так может?";
 		next;
 		mes "[Здоровенный мужик]";
 		mes "Мы жрем мясо! Много мяса. Тестостерон зашкаливает!";
@@ -338,7 +275,7 @@ izlude,207,156,4	script	Гвардеец#swd	119,{
 			if(BaseJob == Job_Swordman) {
 				mes "Нука подожди... Чего то я не понял... Нука, нука...";
 				mes "Дак ты уже Гвардеец! Смотри, вот у тебя доспех нарисован.";
-				mes "Дааа! Так держать! Чем тупее тем больше от тебя пользы!";
+				mes "Дааа! Так держать! Чем тупее, тем больше от тебя пользы!";
 				mes "Идеальный Гвардеец!";
 			}else{
 				mes "Нука подожди... Чего то я не понял... Нука, нука...";
