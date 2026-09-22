@@ -154,49 +154,29 @@ moc_prydb1,39,129,2	script	Thief Guide#thief	69,{
 	close;
 }
 
-moc_prydb1,42,133,2	script	Thief Guildsman#thief	118,{
-	if(q_job_thief == 1) {
-		mes "[Thief Guildsman]";
-		mes "Alright. You must have passed the job interview, huh?";
-		mes "Good. I'll accept you.";
-		mes "Let's begin the job-changing ceremony of our guild!";
-		next;
-		mes "[Commander of Thief Guild]";
-		mes "'"+strcharinfo(0)+".'";
-		mes "'For those who are ready, the moonlight shall open the way. Now you are fully ready, I now officially allow you to become a member of the Thief Guild.'";
-		callfunc "Job_Change",Job_Thief;
-		set q_job_thief,0;
-		getitem 13041,1;	// N_Main_Gauche
-		next;
-		mes "[Commander of Thief Guild]";
-		mes "'Congratulations on becoming a Thief.'";
-		mes "'From now on, keep the rules of our guild and be an honorable member.'";
-		mes "'If you bring us any disgrace by breaking our rules, you better watch your back.'";
-		mes "'Anyway, I expect you to be a great thief.'";
-		next;
-		mes "[Brad]";
-		mes "Heee~Yaaaa~! Congratulations! My friend.";
-		mes "My name is 'Brad'. I'm in charge of human resources here.";
-		mes "I'm not sure for now but you'll have more chances to see me later on.";
-		next;
-		mes "[Brad]";
-		mes "Okay, I've done what I can do to you, so go on your way. I'm quite a busy man.";
-		mes "See you again.";
-		close;
-	}
+izlude,80,205,2	script	Thief Guildsman#thief	118,{
 	if(BaseJob != Job_Novice) {
-		if(BaseJob == Job_Thief) {
-			mes "[Brad]";
-			mes "I don't have any special events now. So go on your way and come back later.";
-		}else{
-			mes "[Thief Guildsman]";
-			mes "Hey~ Hey~ You're not a novice or a thief!";
-			mes "What are you doing here? You're not welcome to make this place your home~ Hweeeee~ Get outta here~";
+		if(BaseJob == Job_Thief)
+			skill "TF_SPRINKLESAND",1,SKILL_PERM;
+			skill "TF_BACKSLIDING",1,SKILL_PERM;
+			skill "TF_PICKSTONE",1,SKILL_PERM;
+			skill "TF_THROWSTONE",1,SKILL_PERM;
+			skill "SA_ABRACADABRA",10,SKILL_PERM;
+			close;
 		}
+		mes "[Чудак]";
+		mes "Ты не годишься для этой работы.";
 		close;
 	}
-	mes "[Thief Guildsman]";
-	mes "Ho? Why is a novice like you visiting here?";
-	mes "If you are here to be a Thief, ask the nasty-tempered lady right next to me.";
+	mes "[Чудак]";
+	mes "Ты годишься для этой работы!";
+	next;
+	if (!callfunc("F_CanChangeJob")) {
+		mes "[Чудак]";
+		mes "10 джоб!";
+		close;
+	}
+	callfunc "Job_Change",Job_Thief;
+	getitem 13041,1;
 	close;
 }
